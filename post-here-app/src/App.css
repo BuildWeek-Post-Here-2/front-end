@@ -70,7 +70,6 @@ body {
   background-color: #235b2d;
   display: flex;
   justify-content: center;
-  
 }
 
 .nav-links a {
@@ -80,4 +79,8 @@ body {
   margin: 0 3rem;
   font-size: 1.6rem;
   color: #c8d5da;
+}
+
+.nav-links a:hover{
+  color: #4e75dd;
 }
