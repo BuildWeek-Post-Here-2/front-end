@@ -1,5 +1,5 @@
 # front-end
--To add dependencies, cd into post-here-app
+- To add dependencies, cd into post-here-app
 
 ## App url
 - Url:
