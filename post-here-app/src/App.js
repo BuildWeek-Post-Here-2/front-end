@@ -1,15 +1,19 @@
 import React from 'react';
 import './App.css';
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import SignUp from './components/SignUp';
+import Login from './components/Login';
+import Dashboard from './components/Dashboard';
 
 function App() {
   return (
-    <div className="App">
-      <h1>Main page</h1>
-      <Router>
-        
-      </Router>
-    </div>
+    <Router>
+      <div className="App">
+        <Route path="/Dashboard" component={Dashboard}/>
+        <Route path="/Login" component={Login}/>
+        <Route exact path="/" component={SignUp}/>
+      </div>
+    </Router>
   );
 }
 

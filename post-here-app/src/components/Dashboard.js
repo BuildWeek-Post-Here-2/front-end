@@ -6,12 +6,12 @@ export default function Login() {
         <header>
             <nav>
                 <div className="nav-links">
-                    <Link to="/">Signup</Link>
-                    <Link to="/login">Login</Link>
-                    <Link to="/dashboard">Dashboard</Link>
+                <Link to="/">Signup</Link>
+                <Link to="/login">Login</Link>
+                <Link to="/dashboard">Dashboard</Link>
                 </div>
             </nav>
-            <h1>Login Here</h1>
+            <h1>Dashboard Here</h1>
         </header>
     )
 }
