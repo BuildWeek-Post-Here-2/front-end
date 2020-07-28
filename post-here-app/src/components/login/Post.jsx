@@ -6,8 +6,12 @@ const Post = (props) => {
   const { post } = props;
 
   return (
-    <div>
-      <h1>{post.id}</h1>
+    <div className="cardBox">
+      <div className="card">
+        <p>{post.first_name}</p>
+        <p>{post.last_name}</p>
+        <p>{post.email}</p>
+      </div>
     </div>
   );
 };
