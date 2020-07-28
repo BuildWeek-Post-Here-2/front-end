@@ -26,7 +26,7 @@ function SignUp() {
     initialSignUpFormErrors
   );
   const [disabled, setDisabled] = useState(initialDisabled);
-  // const [posts, setPosts] = useState([]);
+  const [posts, setPosts] = useState([]);
 
   const signUpOnInputChange = (evt) => {
     const { name, value } = evt.target;
@@ -64,17 +64,17 @@ function SignUp() {
       setDisabled(!valid);
     });
   }, [signUpFormValues]);
-  // useEffect(() => {
-  //   axios
-  //     .get("https://reqres.in/api/users")
-  //     .then((res) => {
-  //       setPosts([...posts, res.data.data]);
-  //       console.log(res.data.data);
-  //     })
-  //     .catch((error) => {
-  //       debugger;
-  //     });
-  // }, [setPosts]);
+  useEffect(() => {
+    axios
+      .get("https://reqres.in/api/users")
+      .then((res) => {
+        setPosts(res.data);
+        console.log(res.data);
+      })
+      .catch((error) => {
+        debugger;
+      });
+  }, []);
   return (
     <div>
       <header>
@@ -91,7 +91,7 @@ function SignUp() {
         disabled={disabled}
         formErrors={signUpFormErrors}
       />
-      {/* <Posts posts={posts} /> */}
+      <Posts posts={posts} />
     </div>
   );
 }
