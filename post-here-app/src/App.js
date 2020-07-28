@@ -5,6 +5,7 @@ import SignUp from "./components/login/signup/SignUp";
 import Login from "./components/login/Login.jsx";
 import Dashboard from "./components/Dashboard";
 
+
 function App() {
   return (
     <Router>

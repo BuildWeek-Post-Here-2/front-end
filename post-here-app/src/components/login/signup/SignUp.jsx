@@ -4,6 +4,7 @@ import signUpSchema from "./signUpSchema";
 import { Link } from "react-router-dom";
 import * as Yup from "yup";
 import { useHistory } from "react-router-dom";
+import axios from "axios";
 
 const initialSignUpFormValues = {
   signUpEmail: "",
@@ -60,15 +61,15 @@ function SignUp() {
     };
     console.log(signUpUser);
 
-    // axios
-    //   .post("", signUpUser)
-    //   .then(res =>{
-    //     console.log('SignUp', res)
-    //     history.push("/login")
-    //   })
-    //   .catch(err => {
-    //     console.log('SignUp', err)
-    //   })
+    axios
+      .post("https://posthere-backend.herokuapp.com/api/auth/register", signUpUser)
+      .then(res =>{
+        console.log('SignUp', res)
+        history.push("/login")
+      })
+      .catch(err => {
+        console.log('SignUp', err)
+      })
   };
   useEffect(() => {
     signUpSchema.isValid(signUpFormValues).then((valid) => {
