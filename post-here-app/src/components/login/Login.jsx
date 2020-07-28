@@ -17,7 +17,6 @@ const initialSignInFormErrors = {
 const initialSignUpFormValues = {
   signUpEmail: "",
   signUpPassword: "",
-  confirmPassword: "",
 };
 const initialSignUpFormErrors = {
   signUpEmail: "",
@@ -100,14 +99,13 @@ export default function Login() {
   };
   const signUpOnSubmit = (evt) => {
     evt.preventDefault();
-    console.log("submit");
-    if (signUpFormValues.signUpPassword === signUpFormValues.confirmPassword) {
-      const signUpUser = {
-        email: signUpFormValues.signUpEmail.trim(),
-        password: signUpFormValues.signUpPassword.trim(),
-      };
-      console.log(signUpUser);
-    }
+
+    const signUpUser = {
+      email: signUpFormValues.signUpEmail.trim(),
+      password: signUpFormValues.signUpPassword.trim(),
+    };
+
+    console.log(signUpUser);
   };
   useEffect(() => {
     signUpSchema.isValid(signUpFormValues).then((valid) => {
