@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
 import SignUpForm from "./loginForms/SignUpForm";
 import signUpSchema from "./validation/signUpSchema";
+import { Link } from "react-router-dom";
 import * as Yup from "yup";
+import Login from "./Login";
 
 const initialSignUpFormValues = {
   signUpEmail: "",
@@ -68,6 +70,9 @@ function SignUp() {
         disabled={disabled}
         formErrors={signUpFormErrors}
       />
+      <Link to="/Login">
+        <h2>Login</h2>
+      </Link>
     </div>
   );
 }
