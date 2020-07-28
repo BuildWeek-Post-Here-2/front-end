@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from "react";
+import * as Yup from "yup";
 import LoginForm from "./LoginForm.jsx";
 import loginSchema from "./loginSchema.js";
-import * as Yup from "yup";
 import { Link } from "react-router-dom";
 import axiosWithAuth from "../../utils/axiosWithAuth"
 import { useHistory } from "react-router-dom";
 
 const initialLoginFormValues = {
-  loginEmail: "",
+  username: "",
   loginPassword: "",
 };
 const initialLoginFormErrors = {
-  loginEmail: "",
+  username: "",
   loginPassword: "",
 };
 
@@ -61,21 +61,23 @@ export default function Login() {
     evt.preventDefault();
 
     const loginUser = {
-      email: loginFormValues.loginEmail.trim(),
+      username: loginFormValues.username.trim(),
       password: loginFormValues.loginPassword.trim(),
     };
-    console.log(loginUser);
+    // console.log(loginUser);
 
-    // axiosWithAuth()
-    // .post("", loginUser)
-    // .then(res => {
-    //   localStorage.setItem('token', res.data.token)
-    // history.push("/dashboard")
-    // })
-    // .catch(err => {
-    //   debugger
-    //   console.log(err)
-    // })
+    axiosWithAuth()
+    .post("/api/auth/login", loginUser)
+    .then(res => {
+      console.log('Login Post', res)
+      // localStorage.setItem('token', res.data.token)
+      // localStorage.setItem('id', response.data.id);
+      // history.push("/dashboard")
+    })
+    .catch(err => {
+      debugger
+      console.log(err)
+    })
   };
 
   return (
