@@ -6,6 +6,7 @@ import * as Yup from "yup";
 const initialSignUpFormValues = {
   signUpEmail: "",
   signUpPassword: "",
+  confirmPassword: "",
 };
 const initialSignUpFormErrors = {
   signUpEmail: "",
