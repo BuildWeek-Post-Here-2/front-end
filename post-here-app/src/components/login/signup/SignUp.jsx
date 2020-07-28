@@ -1,18 +1,23 @@
 import React, { useState, useEffect } from "react";
-import SignUpForm from "./loginForms/SignUpForm";
-import signUpSchema from "./validation/signUpSchema";
+import SignUpForm from "./SignUpForm";
+import signUpSchema from "./signUpSchema";
+import { Link } from "react-router-dom";
 import * as Yup from "yup";
+import { useHistory } from "react-router-dom";
 
 const initialSignUpFormValues = {
   signUpEmail: "",
   signUpPassword: "",
+  confirmPassword: "",
 };
 const initialSignUpFormErrors = {
   signUpEmail: "",
   signUpPassword: "",
   confirmPassword: "",
 };
+
 const initialDisabled = true;
+
 function SignUp() {
   const [signUpFormValues, setSignUpFormValues] = useState(
     initialSignUpFormValues
@@ -20,6 +25,8 @@ function SignUp() {
   const [signUpFormErrors, setSignUpFormErrors] = useState(
     initialSignUpFormErrors
   );
+
+  let history = useHistory(); 
   const [disabled, setDisabled] = useState(initialDisabled);
 
   const signUpOnInputChange = (evt) => {
@@ -43,6 +50,7 @@ function SignUp() {
       [name]: value,
     });
   };
+
   const signUpOnSubmit = (evt) => {
     evt.preventDefault();
 
@@ -50,18 +58,37 @@ function SignUp() {
       email: signUpFormValues.signUpEmail.trim(),
       password: signUpFormValues.signUpPassword.trim(),
     };
-
     console.log(signUpUser);
+
+    // axios
+    //   .post("", signUpUser)
+    //   .then(res =>{
+    //     console.log('SignUp', res)
+    //     history.push("/login")
+    //   })
+    //   .catch(err => {
+    //     console.log('SignUp', err)
+    //   })
   };
   useEffect(() => {
     signUpSchema.isValid(signUpFormValues).then((valid) => {
       setDisabled(!valid);
     });
   }, [signUpFormValues]);
+
   return (
     <div>
+      <nav>
+        <div className="nav-links">
+        <Link to="/">Signup</Link>
+        <Link to="/login">Login</Link>
+        <Link to="/dashboard">Dashboard</Link>
+        </div>
+      </nav>
+      <h1>Signup</h1>
+
       <SignUpForm
-        values={signInFormValues}
+        values={signUpFormValues}
         onSubmit={signUpOnSubmit}
         onInputChange={signUpOnInputChange}
         disabled={disabled}
