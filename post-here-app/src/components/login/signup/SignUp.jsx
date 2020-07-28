@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import * as Yup from "yup";
 import { useHistory } from "react-router-dom";
-import "./signUp.css";
+// import "./signUp.css";
 
 const initialSignUpFormValues = {
   signUpUsername: "",

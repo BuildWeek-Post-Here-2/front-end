@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
-import Post from "./Post";
 import axios from "axios";
+import Post from "./Post";
+import styled from "styled-components";
 
 const Posts = () => {
   // Make sure the parent of Posts is passing the right props!
@@ -16,15 +17,31 @@ const Posts = () => {
         debugger;
       });
   }, []);
+  const StyledPost = styled.div`
+    .cardBox {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .card {
+      margin-top: 3rem;
+      background-color: cornsilk;
+      width: 50%;
+      color: coral;
+    }
+    p {
+      font-size: 2rem;
+    }
+  `;
 
   return (
-    <div className="posts-container-wrapper">
+    <StyledPost>
       {/* map through the posts here to return a Post component */}
       {posts.map((post) => (
         <Post key={post.id} post={post} />
       ))}
       {/* Check the implementation of Post to see what props it requires! */}
-    </div>
+    </StyledPost>
   );
 };
 
