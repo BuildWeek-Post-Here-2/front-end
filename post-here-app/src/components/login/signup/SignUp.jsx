@@ -28,9 +28,8 @@ function SignUp() {
     initialSignUpFormErrors
   );
 
-  let history = useHistory(); 
+  let history = useHistory();
   const [disabled, setDisabled] = useState(initialDisabled);
-  // const [posts, setPosts] = useState([]);
 
   const signUpOnInputChange = (evt) => {
     const { name, value } = evt.target;
@@ -64,14 +63,17 @@ function SignUp() {
     console.log(signUpUser);
 
     axios
-      .post("https://posthere-backend.herokuapp.com/api/auth/register", signUpUser)
-      .then(res =>{
-        console.log('SignUp', res)
-        history.push("/login")
+      .post(
+        "https://posthere-backend.herokuapp.com/api/auth/register",
+        signUpUser
+      )
+      .then((res) => {
+        console.log("SignUp", res);
+        history.push("/login");
       })
-      .catch(err => {
-        console.log('SignUp', err)
-      })
+      .catch((err) => {
+        console.log("SignUp", err);
+      });
   };
   useEffect(() => {
     signUpSchema.isValid(signUpFormValues).then((valid) => {
@@ -83,9 +85,9 @@ function SignUp() {
     <div>
       <nav>
         <div className="nav-links">
-        <Link to="/">Signup</Link>
-        <Link to="/login">Login</Link>
-        <Link to="/dashboard">Dashboard</Link>
+          <Link to="/">Signup</Link>
+          <Link to="/login">Login</Link>
+          <Link to="/dashboard">Dashboard</Link>
         </div>
       </nav>
       <h1>Signup</h1>
