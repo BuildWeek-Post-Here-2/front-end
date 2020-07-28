@@ -3,6 +3,8 @@ import SignUpForm from "./loginForms/SignUpForm";
 import signUpSchema from "./validation/signUpSchema";
 import * as Yup from "yup";
 import { Link } from "react-router-dom";
+import axios from "axios"
+import { useHistory } from "react-router-dom";
 
 const initialSignUpFormValues = {
   signUpEmail: "",
@@ -13,7 +15,9 @@ const initialSignUpFormErrors = {
   signUpPassword: "",
   confirmPassword: "",
 };
+
 const initialDisabled = true;
+
 function SignUp() {
   const [signUpFormValues, setSignUpFormValues] = useState(
     initialSignUpFormValues
@@ -21,6 +25,8 @@ function SignUp() {
   const [signUpFormErrors, setSignUpFormErrors] = useState(
     initialSignUpFormErrors
   );
+
+  let history = useHistory(); 
   const [disabled, setDisabled] = useState(initialDisabled);
 
   const signUpOnInputChange = (evt) => {
@@ -44,6 +50,7 @@ function SignUp() {
       [name]: value,
     });
   };
+
   const signUpOnSubmit = (evt) => {
     evt.preventDefault();
 
@@ -51,14 +58,24 @@ function SignUp() {
       email: signUpFormValues.signUpEmail.trim(),
       password: signUpFormValues.signUpPassword.trim(),
     };
+    // console.log(signUpUser);
 
-    console.log(signUpUser);
+    // axios
+    //   .post("", signUpUser)
+    //   .then(res =>{
+    //     console.log('SignUp', res)
+    //     history.push("/login")
+    //   })
+    //   .catch(err => {
+    //     console.log('SignUp', err)
+    //   })
   };
   useEffect(() => {
     signUpSchema.isValid(signUpFormValues).then((valid) => {
       setDisabled(!valid);
     });
   }, [signUpFormValues]);
+
   return (
     <div>
         <nav>
@@ -69,7 +86,7 @@ function SignUp() {
           </div>
         </nav>
         <h1>Signup</h1>
-        
+
       <SignUpForm
         values={signUpFormValues}
         onSubmit={signUpOnSubmit}

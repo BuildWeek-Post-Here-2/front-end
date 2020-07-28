@@ -3,6 +3,8 @@ import SignInForm from "./loginForms/SignInForm.jsx";
 import signInSchema from "./validation/signInSchema.js";
 import * as Yup from "yup";
 import { Link } from "react-router-dom";
+import axiosWithAuth from "../../utils/axiosWithAuth"
+import { useHistory } from "react-router-dom";
 
 const initialSignInFormValues = {
   signInEmail: "",
@@ -14,6 +16,7 @@ const initialSignInFormErrors = {
 };
 
 const initialDisabled = true;
+
 export default function Login() {
   const [signInFormValues, setSignInFormValues] = useState(
     initialSignInFormValues
@@ -21,6 +24,8 @@ export default function Login() {
   const [signInFormErrors, setSignInFormErrors] = useState(
     initialSignInFormErrors
   );
+
+  let history = useHistory();
 
   const [disabled, setDisabled] = useState(initialDisabled);
 
@@ -59,7 +64,18 @@ export default function Login() {
       email: signInFormValues.signInEmail.trim(),
       password: signInFormValues.signInPassword.trim(),
     };
-    console.log(signInUser);
+    // console.log(signInUser);
+
+    // axiosWithAuth()
+    // .post("", signInUser)
+    // .then(res => {
+    //   localStorage.setItem('token', res.data.token)
+    // history.push("/dashboard")
+    // })
+    // .catch(err => {
+    //   debugger
+    //   console.log(err)
+    // })
   };
 
   return (
@@ -72,7 +88,7 @@ export default function Login() {
           </div>
         </nav>
         <h1>Login</h1>
-        
+
       <SignInForm
         values={signInFormValues}
         onSubmit={signInOnSubmit}
