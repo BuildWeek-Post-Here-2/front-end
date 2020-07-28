@@ -61,7 +61,7 @@ function SignUp() {
   return (
     <div>
       <SignUpForm
-        values={signInFormValues}
+        values={signUpFormValues}
         onSubmit={signUpOnSubmit}
         onInputChange={signUpOnInputChange}
         disabled={disabled}
