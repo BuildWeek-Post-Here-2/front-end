@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
-import SignUpForm from "./loginForms/SignUpForm";
-import signUpSchema from "./validation/signUpSchema";
+import SignUpForm from "./SignUpForm";
+import signUpSchema from "./signUpSchema";
 import { Link } from "react-router-dom";
 import * as Yup from "yup";
-import Login from "./Login";
+import Login from "../Login";
 
 const initialSignUpFormValues = {
   signUpEmail: "",

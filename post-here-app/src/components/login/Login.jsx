@@ -1,75 +1,75 @@
 import React, { useState, useEffect } from "react";
-import SignInForm from "./loginForms/SignInForm.jsx";
-import signInSchema from "./validation/signInSchema.js";
+import LoginForm from "./LoginForm.jsx";
+import loginSchema from "./loginSchema.js";
 import * as Yup from "yup";
 import { Link } from "react-router-dom";
 
-const initialSignInFormValues = {
-  signInEmail: "",
-  signInPassword: "",
+const initialLoginFormValues = {
+  loginEmail: "",
+  loginPassword: "",
 };
-const initialSignInFormErrors = {
-  signInEmail: "",
-  signInPassword: "",
+const initialLoginFormErrors = {
+  loginEmail: "",
+  loginPassword: "",
 };
 
 const initialDisabled = true;
 export default function Login() {
-  const [signInFormValues, setSignInFormValues] = useState(
-    initialSignInFormValues
+  const [loginFormValues, setLoginFormValues] = useState(
+    initialLoginFormValues
   );
-  const [signInFormErrors, setSignInFormErrors] = useState(
-    initialSignInFormErrors
+  const [loginFormErrors, setLoginFormErrors] = useState(
+    initialLoginFormErrors
   );
 
   const [disabled, setDisabled] = useState(initialDisabled);
 
-  const signInOnInputChange = (evt) => {
+  const loginOnInputChange = (evt) => {
     const { name, value } = evt.target;
-    Yup.reach(signInSchema, name)
+    Yup.reach(loginSchema, name)
       .validate(value)
       .then(() => {
-        setSignInFormErrors({
-          ...signInFormErrors,
+        setLoginFormErrors({
+          ...loginFormErrors,
           [name]: "",
         });
       })
       .catch((err) => {
-        setSignInFormErrors({
-          ...signInFormErrors,
+        setLoginFormErrors({
+          ...loginFormErrors,
           [name]: err.errors[0],
         });
       });
-    setSignInFormValues({
-      ...signInFormValues,
+    setLoginFormValues({
+      ...loginFormValues,
       [name]: value,
     });
   };
 
   useEffect(() => {
-    signInSchema.isValid(signInFormValues).then((valid) => {
+    loginSchema.isValid(loginFormValues).then((valid) => {
       setDisabled(!valid);
     });
-  }, [signInFormValues]);
+  }, [loginFormValues]);
 
-  const signInOnSubmit = (evt) => {
+  const loginOnSubmit = (evt) => {
     evt.preventDefault();
 
-    const signInUser = {
-      email: signInFormValues.signInEmail.trim(),
-      password: signInFormValues.signInPassword.trim(),
+    const loginUser = {
+      email: loginFormValues.loginEmail.trim(),
+      password: loginFormValues.loginPassword.trim(),
     };
-    console.log(signInUser);
+    console.log(loginUser);
   };
 
   return (
     <div>
-      <SignInForm
-        values={signInFormValues}
-        onSubmit={signInOnSubmit}
-        onInputChange={signInOnInputChange}
+      <LoginForm
+        values={loginFormValues}
+        onSubmit={loginOnSubmit}
+        onInputChange={loginOnInputChange}
         disabled={disabled}
-        formErrors={signInFormErrors}
+        formErrors={loginFormErrors}
       />
     </div>
   );

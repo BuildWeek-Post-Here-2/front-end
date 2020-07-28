@@ -1,33 +1,33 @@
 import React from "react";
 
-export default function SignInForm(props) {
+export default function LoginForm(props) {
   const { values, onSubmit, onInputChange, disabled, formErrors } = props;
 
   return (
     <form onSubmit={onSubmit}>
       <div>
         <input
-          name="signInEmail"
+          name="loginEmail"
           type="email"
           placeholder="Email"
           onChange={onInputChange}
           value={values.email}
         />
-        <div>{formErrors.signInEmail}</div>
+        <div>{formErrors.loginEmail}</div>
       </div>
 
       <div>
         <input
-          name="signInPassword"
+          name="loginPassword"
           type="password"
           placeholder="Password"
           value={values.password}
           onChange={onInputChange}
         />
-        <div>{formErrors.signInPassword}</div>
+        <div>{formErrors.loginPassword}</div>
       </div>
       <div>
-        <button disabled={disabled}>Sign In</button>
+        <button disabled={disabled}>Login</button>
       </div>
     </form>
   );
