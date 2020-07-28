@@ -1,9 +1,21 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Post from "./Post";
+import axios from "axios";
 
-const Posts = (props) => {
+const Posts = () => {
   // Make sure the parent of Posts is passing the right props!
-  const { posts } = props;
+  const [posts, setPosts] = useState([]);
+  useEffect(() => {
+    axios
+      .get("https://reqres.in/api/users")
+      .then((res) => {
+        setPosts(res.data.data);
+        console.log(res.data.data);
+      })
+      .catch((error) => {
+        debugger;
+      });
+  }, []);
 
   return (
     <div className="posts-container-wrapper">

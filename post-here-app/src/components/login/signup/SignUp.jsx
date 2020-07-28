@@ -4,7 +4,7 @@ import signUpSchema from "./signUpSchema";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import * as Yup from "yup";
-import Posts from "../Posts.jsx";
+import { useHistory } from "react-router-dom";
 import "./signUp.css";
 
 const initialSignUpFormValues = {
@@ -17,7 +17,9 @@ const initialSignUpFormErrors = {
   signUpPassword: "",
   confirmPassword: "",
 };
+
 const initialDisabled = true;
+
 function SignUp() {
   const [signUpFormValues, setSignUpFormValues] = useState(
     initialSignUpFormValues
@@ -25,8 +27,9 @@ function SignUp() {
   const [signUpFormErrors, setSignUpFormErrors] = useState(
     initialSignUpFormErrors
   );
+
+  let history = useHistory();
   const [disabled, setDisabled] = useState(initialDisabled);
-  const [posts, setPosts] = useState([]);
 
   const signUpOnInputChange = (evt) => {
     const { name, value } = evt.target;
@@ -49,6 +52,7 @@ function SignUp() {
       [name]: value,
     });
   };
+
   const signUpOnSubmit = (evt) => {
     evt.preventDefault();
 
@@ -56,34 +60,38 @@ function SignUp() {
       username: signUpFormValues.signUpUsername.trim(),
       password: signUpFormValues.signUpPassword.trim(),
     };
-
     console.log(signUpUser);
+
+    axios
+      .post(
+        "https://posthere-backend.herokuapp.com/api/auth/register",
+        signUpUser
+      )
+      .then((res) => {
+        console.log("SignUp", res);
+        history.push("/login");
+      })
+      .catch((err) => {
+        console.log("SignUp", err);
+      });
   };
   useEffect(() => {
     signUpSchema.isValid(signUpFormValues).then((valid) => {
       setDisabled(!valid);
     });
   }, [signUpFormValues]);
-  useEffect(() => {
-    axios
-      .get("https://reqres.in/api/users")
-      .then((res) => {
-        setPosts(res.data);
-        console.log(res.data);
-      })
-      .catch((error) => {
-        debugger;
-      });
-  }, []);
+
   return (
     <div>
-      <header>
-        <nav>
-          <Link to="/Login">
-            <h3>Login</h3>
-          </Link>
-        </nav>
-      </header>
+      <nav>
+        <div className="nav-links">
+          <Link to="/">Signup</Link>
+          <Link to="/login">Login</Link>
+          <Link to="/dashboard">Dashboard</Link>
+        </div>
+      </nav>
+      <h1>Signup</h1>
+
       <SignUpForm
         values={signUpFormValues}
         onSubmit={signUpOnSubmit}
@@ -91,7 +99,6 @@ function SignUp() {
         disabled={disabled}
         formErrors={signUpFormErrors}
       />
-      <Posts posts={posts} />
     </div>
   );
 }

@@ -2,6 +2,9 @@ import React, { useState, useEffect } from "react";
 import * as Yup from "yup";
 import LoginForm from "./LoginForm.jsx";
 import loginSchema from "./loginSchema.js";
+import { Link } from "react-router-dom";
+import axiosWithAuth from "../../utils/axiosWithAuth"
+import { useHistory } from "react-router-dom";
 
 const initialLoginFormValues = {
   username: "",
@@ -13,6 +16,7 @@ const initialLoginFormErrors = {
 };
 
 const initialDisabled = true;
+
 export default function Login() {
   const [loginFormValues, setLoginFormValues] = useState(
     initialLoginFormValues
@@ -20,6 +24,9 @@ export default function Login() {
   const [loginFormErrors, setLoginFormErrors] = useState(
     initialLoginFormErrors
   );
+
+  let history = useHistory();
+
   const [disabled, setDisabled] = useState(initialDisabled);
 
   const loginOnInputChange = (evt) => {
@@ -57,11 +64,33 @@ export default function Login() {
       username: loginFormValues.username.trim(),
       password: loginFormValues.loginPassword.trim(),
     };
-    console.log(loginUser);
+    // console.log(loginUser);
+
+    axiosWithAuth()
+    .post("/api/auth/login", loginUser)
+    .then(res => {
+      console.log('Login Post', res)
+      // localStorage.setItem('token', res.data.token)
+      // localStorage.setItem('id', response.data.id);
+      // history.push("/dashboard")
+    })
+    .catch(err => {
+      debugger
+      console.log(err)
+    })
   };
 
   return (
     <div>
+      <nav>
+        <div className="nav-links">
+        <Link to="/">Signup</Link>
+        <Link to="/login">Login</Link>
+        <Link to="/dashboard">Dashboard</Link>
+        </div>
+      </nav>
+      <h1>Login</h1>
+
       <LoginForm
         values={loginFormValues}
         onSubmit={loginOnSubmit}
