@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
-import SignUpForm from "./loginForms/SignUpForm";
-import signUpSchema from "./validation/signUpSchema";
-import * as Yup from "yup";
+import SignUpForm from "./SignUpForm";
+import signUpSchema from "./signUpSchema";
 import { Link } from "react-router-dom";
-import axios from "axios"
+import * as Yup from "yup";
 import { useHistory } from "react-router-dom";
 
 const initialSignUpFormValues = {
   signUpEmail: "",
   signUpPassword: "",
+  confirmPassword: "",
 };
 const initialSignUpFormErrors = {
   signUpEmail: "",
@@ -58,7 +58,7 @@ function SignUp() {
       email: signUpFormValues.signUpEmail.trim(),
       password: signUpFormValues.signUpPassword.trim(),
     };
-    // console.log(signUpUser);
+    console.log(signUpUser);
 
     // axios
     //   .post("", signUpUser)
@@ -78,14 +78,14 @@ function SignUp() {
 
   return (
     <div>
-        <nav>
-          <div className="nav-links">
-          <Link to="/">Signup</Link>
-          <Link to="/login">Login</Link>
-          <Link to="/dashboard">Dashboard</Link>
-          </div>
-        </nav>
-        <h1>Signup</h1>
+      <nav>
+        <div className="nav-links">
+        <Link to="/">Signup</Link>
+        <Link to="/login">Login</Link>
+        <Link to="/dashboard">Dashboard</Link>
+        </div>
+      </nav>
+      <h1>Signup</h1>
 
       <SignUpForm
         values={signUpFormValues}
