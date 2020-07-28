@@ -18,6 +18,7 @@ function App() {
     user_id:"",
     title:"",
     content:"",
+    subreddit:"",
   })
 
 

@@ -71,7 +71,7 @@ export default function Login() {
     .then(res => {
       console.log('Login Post', res)
       localStorage.setItem('token', res.data.token)
-      localStorage.setItem('id', res.data.id);
+      localStorage.setItem('id', res.data.data.id);
       history.push("/dashboard")
     })
     .catch(err => {
