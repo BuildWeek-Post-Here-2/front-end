@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import SignUp from "./components/login/signup/SignUp";
 import Login from "./components/login/Login.jsx";
 import Dashboard from "./components/Dashboard";
+import PrivateRoute from "./utils/PrivateRoute";
 
 import { UserContext } from './utils/UserContext';
 
@@ -24,7 +25,7 @@ function App() {
     <Router>
       <UserContext.Provider value ={{user_id, postList, setPostList}}>
         <div className="App">
-          <Route path="/Dashboard" component={Dashboard} />
+          <PrivateRoute path="/Dashboard" component={Dashboard} />
           <Route path="/Login" component={Login} />
           <Route exact path="/" component={SignUp} />
         </div>
