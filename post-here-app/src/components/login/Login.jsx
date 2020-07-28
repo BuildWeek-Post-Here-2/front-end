@@ -64,13 +64,15 @@ export default function Login() {
       email: loginFormValues.loginEmail.trim(),
       password: loginFormValues.loginPassword.trim(),
     };
-    console.log(loginUser);
+    // console.log(loginUser);
 
     axiosWithAuth()
     .post("/api/auth/login", loginUser)
     .then(res => {
-      localStorage.setItem('token', res.data.token)
-    history.push("/dashboard")
+      console.log('Login Post', res)
+      // localStorage.setItem('token', res.data.token)
+      // localStorage.setItem('id', response.data.id);
+      // history.push("/dashboard")
     })
     .catch(err => {
       debugger
