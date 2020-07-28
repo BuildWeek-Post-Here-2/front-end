@@ -2,17 +2,18 @@ import React, { useState, useEffect } from "react";
 import SignUpForm from "./SignUpForm";
 import signUpSchema from "./signUpSchema";
 import { Link } from "react-router-dom";
+import axios from "axios";
 import * as Yup from "yup";
 import { useHistory } from "react-router-dom";
-import axios from "axios";
+import "./signUp.css";
 
 const initialSignUpFormValues = {
-  signUpEmail: "",
+  signUpUsername: "",
   signUpPassword: "",
   confirmPassword: "",
 };
 const initialSignUpFormErrors = {
-  signUpEmail: "",
+  signUpUsername: "",
   signUpPassword: "",
   confirmPassword: "",
 };
@@ -29,6 +30,7 @@ function SignUp() {
 
   let history = useHistory(); 
   const [disabled, setDisabled] = useState(initialDisabled);
+  // const [posts, setPosts] = useState([]);
 
   const signUpOnInputChange = (evt) => {
     const { name, value } = evt.target;
@@ -56,7 +58,7 @@ function SignUp() {
     evt.preventDefault();
 
     const signUpUser = {
-      email: signUpFormValues.signUpEmail.trim(),
+      username: signUpFormValues.signUpUsername.trim(),
       password: signUpFormValues.signUpPassword.trim(),
     };
     console.log(signUpUser);
