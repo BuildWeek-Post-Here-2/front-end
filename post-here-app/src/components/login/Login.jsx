@@ -70,9 +70,9 @@ export default function Login() {
     .post("/api/auth/login", loginUser)
     .then(res => {
       console.log('Login Post', res)
-      // localStorage.setItem('token', res.data.token)
-      // localStorage.setItem('id', response.data.id);
-      // history.push("/dashboard")
+      localStorage.setItem('token', res.data.token)
+      localStorage.setItem('id', res.data.id);
+      history.push("/dashboard")
     })
     .catch(err => {
       debugger
