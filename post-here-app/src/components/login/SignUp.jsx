@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import SignUpForm from "./loginForms/SignUpForm.jsx";
-import signUpSchema from "./validation/signUpSchema.js";
+import SignUpForm from "./loginForms/SignUpForm";
+import signUpSchema from "./validation/signUpSchema";
 import * as Yup from "yup";
 
 const initialSignUpFormValues = {

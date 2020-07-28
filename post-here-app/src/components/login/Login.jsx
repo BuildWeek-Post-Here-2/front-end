@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from "react";
 import SignInForm from "./loginForms/SignInForm.jsx";
-import SignUpForm from "./loginForms/SignUpForm.jsx";
 import signInSchema from "./validation/signInSchema.js";
-import signUpSchema from "./validation/signUpSchema.js";
 import * as Yup from "yup";
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
 
 const initialSignInFormValues = {
   signInEmail: "",
