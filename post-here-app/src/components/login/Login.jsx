@@ -64,6 +64,15 @@ export default function Login() {
 
   return (
     <div>
+        <nav>
+          <div className="nav-links">
+          <Link to="/">Signup</Link>
+          <Link to="/login">Login</Link>
+          <Link to="/dashboard">Dashboard</Link>
+          </div>
+        </nav>
+        <h1>Login</h1>
+        
       <SignInForm
         values={signInFormValues}
         onSubmit={signInOnSubmit}

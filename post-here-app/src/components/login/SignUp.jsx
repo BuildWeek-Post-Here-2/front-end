@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import SignUpForm from "./loginForms/SignUpForm";
 import signUpSchema from "./validation/signUpSchema";
 import * as Yup from "yup";
+import { Link } from "react-router-dom";
 
 const initialSignUpFormValues = {
   signUpEmail: "",
@@ -60,8 +61,17 @@ function SignUp() {
   }, [signUpFormValues]);
   return (
     <div>
+        <nav>
+          <div className="nav-links">
+          <Link to="/">Signup</Link>
+          <Link to="/login">Login</Link>
+          <Link to="/dashboard">Dashboard</Link>
+          </div>
+        </nav>
+        <h1>Signup</h1>
+        
       <SignUpForm
-        values={signInFormValues}
+        values={signUpFormValues}
         onSubmit={signUpOnSubmit}
         onInputChange={signUpOnInputChange}
         disabled={disabled}
