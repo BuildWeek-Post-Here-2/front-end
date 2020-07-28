@@ -2,16 +2,18 @@ import React, { useState, useEffect } from "react";
 import SignUpForm from "./SignUpForm";
 import signUpSchema from "./signUpSchema";
 import { Link } from "react-router-dom";
+import axios from "axios";
 import * as Yup from "yup";
-import Login from "../Login";
+import Posts from "../Posts.jsx";
+import "./signUp.css";
 
 const initialSignUpFormValues = {
-  signUpEmail: "",
+  signUpUsername: "",
   signUpPassword: "",
   confirmPassword: "",
 };
 const initialSignUpFormErrors = {
-  signUpEmail: "",
+  signUpUsername: "",
   signUpPassword: "",
   confirmPassword: "",
 };
@@ -24,6 +26,7 @@ function SignUp() {
     initialSignUpFormErrors
   );
   const [disabled, setDisabled] = useState(initialDisabled);
+  // const [posts, setPosts] = useState([]);
 
   const signUpOnInputChange = (evt) => {
     const { name, value } = evt.target;
@@ -50,7 +53,7 @@ function SignUp() {
     evt.preventDefault();
 
     const signUpUser = {
-      email: signUpFormValues.signUpEmail.trim(),
+      username: signUpFormValues.signUpUsername.trim(),
       password: signUpFormValues.signUpPassword.trim(),
     };
 
@@ -61,8 +64,26 @@ function SignUp() {
       setDisabled(!valid);
     });
   }, [signUpFormValues]);
+  // useEffect(() => {
+  //   axios
+  //     .get("https://reqres.in/api/users")
+  //     .then((res) => {
+  //       setPosts([...posts, res.data.data]);
+  //       console.log(res.data.data);
+  //     })
+  //     .catch((error) => {
+  //       debugger;
+  //     });
+  // }, [setPosts]);
   return (
     <div>
+      <header>
+        <nav>
+          <Link to="/Login">
+            <h3>Login</h3>
+          </Link>
+        </nav>
+      </header>
       <SignUpForm
         values={signUpFormValues}
         onSubmit={signUpOnSubmit}
@@ -70,9 +91,7 @@ function SignUp() {
         disabled={disabled}
         formErrors={signUpFormErrors}
       />
-      <Link to="/Login">
-        <h2>Login</h2>
-      </Link>
+      {/* <Posts posts={posts} /> */}
     </div>
   );
 }

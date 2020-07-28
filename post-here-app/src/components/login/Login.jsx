@@ -1,15 +1,14 @@
 import React, { useState, useEffect } from "react";
+import * as Yup from "yup";
 import LoginForm from "./LoginForm.jsx";
 import loginSchema from "./loginSchema.js";
-import * as Yup from "yup";
-import { Link } from "react-router-dom";
 
 const initialLoginFormValues = {
-  loginEmail: "",
+  username: "",
   loginPassword: "",
 };
 const initialLoginFormErrors = {
-  loginEmail: "",
+  username: "",
   loginPassword: "",
 };
 
@@ -21,7 +20,6 @@ export default function Login() {
   const [loginFormErrors, setLoginFormErrors] = useState(
     initialLoginFormErrors
   );
-
   const [disabled, setDisabled] = useState(initialDisabled);
 
   const loginOnInputChange = (evt) => {
@@ -56,7 +54,7 @@ export default function Login() {
     evt.preventDefault();
 
     const loginUser = {
-      email: loginFormValues.loginEmail.trim(),
+      username: loginFormValues.username.trim(),
       password: loginFormValues.loginPassword.trim(),
     };
     console.log(loginUser);
