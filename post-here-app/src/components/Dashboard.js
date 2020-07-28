@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import Posts from "../components/login/Posts";
+import NewPost from "./NewPost";
 
 export default function Login() {
   return (
@@ -14,6 +15,7 @@ export default function Login() {
         </div>
       </nav>
       <h1>Dashboard Here</h1>
+      <NewPost/>
       <Posts />
     </header>
   );
