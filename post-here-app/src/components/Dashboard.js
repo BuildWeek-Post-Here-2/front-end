@@ -25,9 +25,9 @@ export default function Dashboard() {
       justify-content: center;
       .card {
         margin-top: 3rem;
-        background-color: cornsilk;
+        background-color: black;
         width: 50%;
-        color: coral;
+        color: green;
         p {
           font-size: 2rem;
         }
