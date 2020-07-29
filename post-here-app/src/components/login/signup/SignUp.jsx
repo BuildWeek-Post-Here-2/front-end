@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import * as Yup from "yup";
 import { useHistory } from "react-router-dom";
-// import "./signUp.css";
 
 const initialSignUpFormValues = {
   signUpUsername: "",
@@ -84,11 +83,9 @@ function SignUp() {
   return (
     <div>
       <nav>
-        <div className="nav-links">
-          <Link to="/">Signup</Link>
-          <Link to="/login">Login</Link>
-          <Link to="/dashboard">Dashboard</Link>
-        </div>
+        <Link to="/">Signup</Link>
+        <Link to="/login">Login</Link>
+        <Link to="/dashboard">Dashboard</Link>
       </nav>
       <h1>Signup</h1>
 

@@ -1,44 +1,8 @@
 import React from "react";
-import styled from "styled-components";
+import "../login.css";
 
 export default function SignUpForm(props) {
   const { values, onSubmit, onInputChange, disabled, formErrors } = props;
-  // const StyledForm = styled.div`
-  //   .form {
-  //     display: flex;
-  //     flex-direction: column;
-  //     align-items: center;
-  //   }
-  //   nav {
-  //     display: flex;
-
-  //     background-color: blueviolet;
-  //   }
-  //   h3 {
-  //     text-decoration: none;
-  //     color: blue;
-  //     font-size: 3rem;
-  //   }
-  //   .formDiv {
-  //     margin-top: 2rem;
-  //     height: 8rem;
-  //   }
-  //   input {
-  //     height: 4rem;
-  //     width: 40rem;
-  //     font-size: 2rem;
-  //     background-color: cornsilk;
-  //   }
-  //   .formErrors {
-  //     font-size: 2rem;
-  //   }
-  //   button {
-  //     height: 4rem;
-  //     width: 12rem;
-  //     margin-top: 1rem;
-  //     font-weight: bold;
-  //   }
-  // `;
 
   return (
     <div>

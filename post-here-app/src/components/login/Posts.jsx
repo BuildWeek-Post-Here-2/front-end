@@ -1,36 +1,18 @@
 import React, { useEffect, useState, useContext } from "react";
 import Post from "./Post";
 import styled from "styled-components";
-import { UserContext } from '../../utils/UserContext';
+import { UserContext } from "../../utils/UserContext";
 
 const Posts = () => {
   // Make sure the parent of Posts is passing the right props!
   // const [posts, setPosts] = useState([]);
-  
-  const { postList, getData } = useContext(UserContext)
+
+  const { postList, getData } = useContext(UserContext);
 
   useEffect(() => {
-    getData()
+    getData();
   }, []);
-
-
-
-  const StyledPost = styled.div`
-    .cardBox {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .card {
-      margin-top: 3rem;
-      background-color: cornsilk;
-      width: 50%;
-      color: coral;
-    }
-    p {
-      font-size: 2rem;
-    }
-  `;
+  const StyledPost = styled.div``;
 
   return (
     <StyledPost>
@@ -44,4 +26,3 @@ const Posts = () => {
 };
 
 export default Posts;
-
