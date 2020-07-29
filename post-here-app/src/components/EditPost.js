@@ -45,7 +45,7 @@ const EditPost = (props) => {
     }
 
     return(
-        <div className='newPost'>
+        <div className='updatePost'>
             <h3>Update a Post</h3>
             <form>
                 <input
