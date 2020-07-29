@@ -13,6 +13,7 @@ const EditPost = (props) => {
         subreddit:"",
     })
 
+    // Web API PUT request
     const editPost = (e, id) => {
         e.preventDefault()
         axiosWithAuth()
