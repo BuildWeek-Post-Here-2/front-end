@@ -2,7 +2,7 @@
 - To add dependencies, cd into post-here-app
 
 ## App url
-- Url: https://post-here-front-end.vercel.app/
+- Url: https://post-here-app.vercel.app/
 
 ## Dependencies / Frameworks / Libraries
 
