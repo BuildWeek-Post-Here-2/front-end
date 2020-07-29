@@ -83,9 +83,12 @@ function SignUp() {
   return (
     <div>
       <nav>
+      <a href="#">Post Here</a>
+        <a href="#">Home</a>
         <Link to="/">Signup</Link>
         <Link to="/login">Login</Link>
         <Link to="/dashboard">Dashboard</Link>
+        <a href="#">About us</a>
       </nav>
       <h1>Signup</h1>
 

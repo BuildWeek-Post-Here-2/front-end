@@ -10,6 +10,25 @@ const Post = (props) => {
   const { getData, postList, setPostList } = useContext(UserContext);
   const [subredditPrediction, setSubredditPrediction] = useState("");
 
+  const openModal = e => {
+    e.preventDefault()
+    const modal = document.querySelector('#modalTest')
+    const editbutton = document.querySelector('#editButton')
+    const deletebutton = document.querySelector('#deleteButton')
+    modal.classList.add("open-modal")
+    editbutton.classList.add("hide-button")
+    deletebutton.classList.add("hide-button")
+  }
+
+  const closeModal = () => {
+    const modal = document.querySelector('#modalTest')
+    const editbutton = document.querySelector('#editButton')
+    const deletebutton = document.querySelector('#deleteButton')
+    modal.classList.remove("open-modal")
+    editbutton.classList.remove("hide-button")
+    deletebutton.classList.remove("hide-button")
+  }
+
   // Web API DELETE request
   const deletePost = (e, id) => {
     e.preventDefault();
@@ -80,13 +99,20 @@ const Post = (props) => {
     <StyledForm>
       <div className="cardBox">
         <div className="card">
+          <button id='editButton' onClick={openModal}>Edit</button>
+          <div id="modalTest">
+            <p className='exit' onClick={closeModal}>X</p>
+            <EditPosts id={post.id}/>
+          </div>
+          <button id="deleteButton" 
+            onClick={(e) => deletePost(e,post.id)}
+          >
+            Delete
+          </button>
+
           <p>{post.title}</p>
           <p>{post.content}</p>
           <p>Prediction: r/{subredditPrediction}</p>
-          <EditPosts id={post.id} />
-          <button id="deletebutton" onClick={(e) => deletePost(e, post.id)}>
-            Delete
-          </button>
         </div>
       </div>
     </StyledForm>

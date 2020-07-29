@@ -45,30 +45,28 @@ const EditPost = (props) => {
     });
   };
 
-  return (
-    <div className="newPost">
-      <h3>Update Post</h3>
-      <form>
-        <input
-          type="text"
-          name="title"
-          value={postToEdit.title}
-          onChange={onChangeHandler}
-          placeholder="title"
-        />
-        <input
-          type="text"
-          name="content"
-          value={postToEdit.content}
-          onChange={onChangeHandler}
-          placeholder="content"
-        />
-        <button id="editbutton" onClick={(e) => editPost(e, props.id)}>
-          Submit Changes
-        </button>
-      </form>
-    </div>
-  );
-};
+    return(
+        <div className='updatePost'>
+            <h3>Update a Post</h3>
+            <form>
+                <input
+                    type="text"
+                    name="title"
+                    value={postToEdit.title}
+                    onChange={onChangeHandler}
+                    placeholder="title"
+                />
+                <input
+                    type="text"
+                    name="content"
+                    value={postToEdit.content}
+                    onChange={onChangeHandler}
+                    placeholder="content"
+                />
+                <button id="editbutton" onClick={(e) => editPost(e, props.id)}>Submit Changes</button>
+            </form>
+        </div>
+    )
+}
 
 export default EditPost;
