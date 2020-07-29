@@ -12,16 +12,20 @@ const Post = (props) => {
   const openModal = e => {
     e.preventDefault()
     const modal = document.querySelector('#modalTest')
-    const button = document.querySelector('#editButton')
+    const editbutton = document.querySelector('#editButton')
+    const deletebutton = document.querySelector('#deleteButton')
     modal.classList.add("open-modal")
-    button.classList.add("hide-button")
+    editbutton.classList.add("hide-button")
+    deletebutton.classList.add("hide-button")
   }
 
   const closeModal = () => {
     const modal = document.querySelector('#modalTest')
-    const button = document.querySelector('#editButton')
+    const editbutton = document.querySelector('#editButton')
+    const deletebutton = document.querySelector('#deleteButton')
     modal.classList.remove("open-modal")
-    button.classList.remove("hide-button")
+    editbutton.classList.remove("hide-button")
+    deletebutton.classList.remove("hide-button")
   }
 
   // Web API DELETE request
@@ -68,7 +72,7 @@ const Post = (props) => {
       <div className="card">
         <button id='editButton' onClick={openModal}>Edit</button>
         <div id="modalTest">
-          <span onClick={closeModal}>X</span>
+          <p className='exit' onClick={closeModal}>X</p>
           <EditPosts id={post.id}/>
         </div>
         <button id="deleteButton" 
