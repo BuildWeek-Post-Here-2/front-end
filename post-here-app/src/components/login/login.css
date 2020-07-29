@@ -5,9 +5,14 @@
 }
 nav {
   display: flex;
-
-  border: solid black 2px;
-  background-color: blueviolet;
+  justify-content: space-around;
+  background-color: #d7bde2;
+  width: 100%;
+}
+a {
+  text-decoration: none;
+  font-size: 2rem;
+  color: #2e4053;
 }
 h3 {
   text-decoration: none;

@@ -17,22 +17,7 @@ const Posts = () => {
         debugger;
       });
   }, []);
-  const StyledPost = styled.div`
-    .cardBox {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .card {
-      margin-top: 3rem;
-      background-color: cornsilk;
-      width: 50%;
-      color: coral;
-    }
-    p {
-      font-size: 2rem;
-    }
-  `;
+  const StyledPost = styled.div``;
 
   return (
     <StyledPost>

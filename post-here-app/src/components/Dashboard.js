@@ -6,51 +6,41 @@ import styled from "styled-components";
 
 export default function Login() {
   const StyledForm = styled.div`
-    .form {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
+    background-color: #3498db;
     nav {
       display: flex;
-
-      border: solid black 2px;
-      background-color: blueviolet;
+      justify-content: space-around;
+      background-color: #d7bde2;
+      width: 100%;
+      a {
+        text-decoration: none;
+        font-size: 2rem;
+        color: #2e4053;
+      }
     }
-    h3 {
-      text-decoration: none;
-      color: blue;
-      font-size: 3rem;
-    }
-    .formDiv {
-      border: solid black 2px;
-      margin-top: 2rem;
-      height: 8rem;
-    }
-    input {
-      height: 4rem;
-      width: 40rem;
-      font-size: 2rem;
-      background-color: cornsilk;
-    }
-    .formErrors {
-      font-size: 2rem;
-    }
-    button {
-      height: 4rem;
-      width: 12rem;
-      margin-top: 1rem;
+    .cardBox {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      .card {
+        border-radius: 2rem;
+        margin-top: 3rem;
+        background-color: cornsilk;
+        width: 50%;
+        color: coral;
+        p {
+          font-size: 2rem;
+        }
+      }
     }
   `;
   return (
     <StyledForm>
       <header>
         <nav>
-          <div className="nav-links">
-            <Link to="/">Signup</Link>
-            <Link to="/login">Login</Link>
-            <Link to="/dashboard">Dashboard</Link>
-          </div>
+          <Link to="/">Signup</Link>
+          <Link to="/login">Login</Link>
+          <Link to="/dashboard">Dashboard</Link>
         </nav>
         <h1>Dashboard Here</h1>
       </header>
