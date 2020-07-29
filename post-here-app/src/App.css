@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;0,700;1,300&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;0,700;1,300&display=swap");
 
 /* CSS Reset */
 * {
@@ -9,12 +9,17 @@ html {
   font-size: 62.5%;
 }
 
-html, body {
-  font-family: 'Roboto', sans-serif;
+html,
+body {
+  font-family: "Roboto", sans-serif;
 }
 
-h1, h2, h3, h4, h5 {
-  font-family: 'Nunito', sans-serif;
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: "Nunito", sans-serif;
 }
 
 h1 {
@@ -35,6 +40,7 @@ p {
   line-height: 1.5;
   font-size: 1.6rem;
   padding-bottom: 1rem;
+  color: red;
 }
 
 img {
@@ -59,14 +65,14 @@ body {
 
 .App {
   text-align: center;
-  font-family: 'Nunito', sans-serif;
+  font-family: "Nunito", sans-serif;
   box-sizing: border-box;
 }
 
 .nav-links {
-  font-family: 'Nunito', sans-serif;
+  font-family: "Nunito", sans-serif;
   font-weight: 600;
-  margin-top: .7%;
+  margin-top: 0.7%;
   background-color: #235b2d;
   display: flex;
   justify-content: center;
@@ -74,13 +80,13 @@ body {
 
 .nav-links a {
   text-decoration: none;
-  font-family: 'Nunito', sans-serif;
+  font-family: "Nunito", sans-serif;
   font-weight: normal;
   margin: 0 3rem;
   font-size: 1.6rem;
   color: #c8d5da;
 }
 
-.nav-links a:hover{
+.nav-links a:hover {
   color: #4e75dd;
 }
