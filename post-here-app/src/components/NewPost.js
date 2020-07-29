@@ -13,6 +13,8 @@ const NewPost = (props) => {
         subreddit:"",
     })
 
+    // Web API POST request
+
     const addNewPost = e => {
         e.preventDefault()
 
