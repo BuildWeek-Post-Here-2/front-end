@@ -24,7 +24,7 @@ const EditPost = (props) => {
         subreddit: postToEdit.subreddit,
       })
       .then((res) => {
-        console.log("Post Changed", res);
+        // console.log("Post Changed", res);
         setPostToEdit({
           user_id: user_id,
           title: postToEdit.title,
