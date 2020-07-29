@@ -1,11 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import axios from "axios";
 import Posts from "../components/login/Posts";
 import styled from "styled-components";
 import NewPost from "./NewPost";
+import { UserContext } from '../utils/UserContext';
 
 export default function Dashboard() {
+  const { logOut } = useContext(UserContext)
+
   const StyledForm = styled.div`
     background-color: #3498db;
     nav {
@@ -38,9 +40,13 @@ export default function Dashboard() {
     <div className='dashboard'>
       <header>
         <nav>
+          <a className="logo" href="#">Post Here</a>
+          <a href="#">Home</a>
           <Link to="/">Signup</Link>
           <Link to="/login">Login</Link>
           <Link to="/dashboard">Dashboard</Link>
+          <Link to="/login" onClick={logOut}>Log Out</Link>
+          <a href="#">About us</a>
         </nav>
         <NewPost />
       </header>

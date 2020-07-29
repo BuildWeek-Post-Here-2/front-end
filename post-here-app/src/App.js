@@ -35,10 +35,14 @@ function App() {
     });
   }
 
+  const logOut = () => {
+    window.localStorage.clear()
+  }
+
 
   return (
     <Router>
-      <UserContext.Provider value ={{user_id, postList, setPostList, getData}}>
+      <UserContext.Provider value ={{user_id, postList, setPostList, getData, logOut}}>
         <div className="App">
           <Route path="/Dashboard" component={Dashboard} />
           <Route path="/Login" component={Login} />
