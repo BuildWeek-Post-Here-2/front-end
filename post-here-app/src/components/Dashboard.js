@@ -6,7 +6,7 @@ import NewPost from "./NewPost";
 
 export default function Dashboard() {
   return (
-    <styledForm>
+    <div>
       <header>
         <nav>
           <Link to="/">Signup</Link>
@@ -16,6 +16,6 @@ export default function Dashboard() {
         <NewPost />
       </header>
       <Posts />
-    </styledForm>
+    </div>
   );
 }
