@@ -1,27 +1,16 @@
 import React, { useEffect, useState, useContext } from "react";
-import axios from "axios";
 import Post from "./Post";
 import styled from "styled-components";
-import axiosWithAuth from "../../utils/axiosWithAuth"
 import { UserContext } from '../../utils/UserContext';
 
 const Posts = () => {
   // Make sure the parent of Posts is passing the right props!
   // const [posts, setPosts] = useState([]);
   
-  const { user_id, postList, setPostList } = useContext(UserContext)
+  const { postList, getData } = useContext(UserContext)
 
   useEffect(() => {
-    axiosWithAuth()
-      .get(`/api/posts/user/${user_id}`)
-      .then((res) => {
-        setPostList(res.data);
-        console.log("GET REQUEST", res)
-      })
-      .catch((err) => {
-        console.log(err)
-        debugger
-      });
+    getData()
   }, []);
 
 
