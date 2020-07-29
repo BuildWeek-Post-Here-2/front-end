@@ -1,3 +1,7 @@
+body {
+  background-image: url("./1.jpg");
+  background-image: 100%;
+}
 .form {
   display: flex;
   flex-direction: column;
@@ -6,17 +10,20 @@
 nav {
   display: flex;
   justify-content: space-around;
-  background-color: #d7bde2;
+  align-items: center;
+  background-color: #ffe81f;
   width: 100%;
+  height: 10vh;
 }
 a {
   text-decoration: none;
   font-size: 2rem;
-  color: #2e4053;
+  font-weight: bolder;
+  color: black;
 }
 h3 {
   text-decoration: none;
-  color: blue;
+  color: red;
   font-size: 3rem;
 }
 .formDiv {
@@ -28,7 +35,8 @@ input {
   height: 4rem;
   width: 40rem;
   font-size: 2rem;
-  background-color: cornsilk;
+  background-color: #b0b0b0;
+  color: #ffe81f;
 }
 .formErrors {
   font-size: 2rem;
@@ -37,4 +45,9 @@ button {
   height: 4rem;
   width: 12rem;
   margin-top: 1rem;
+  color: red;
+  background-color: black;
+}
+h1 {
+  color: red;
 }

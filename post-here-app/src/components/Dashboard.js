@@ -5,7 +5,7 @@ import Posts from "../components/login/Posts";
 import styled from "styled-components";
 import NewPost from "./NewPost";
 
-export default function Login() {
+export default function Dashboard() {
   const StyledForm = styled.div`
     background-color: #3498db;
     nav {

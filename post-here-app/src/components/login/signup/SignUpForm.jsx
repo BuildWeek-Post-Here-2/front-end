@@ -1,5 +1,4 @@
 import React from "react";
-import styled from "styled-components";
 import "../login.css";
 
 export default function SignUpForm(props) {
