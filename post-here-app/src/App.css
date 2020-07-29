@@ -69,7 +69,7 @@ body {
   box-sizing: border-box;
 }
 
-.nav-links {
+/* .nav-links {
   font-family: "Nunito", sans-serif;
   font-weight: 600;
   margin-top: 0.7%;
@@ -85,10 +85,10 @@ body {
   margin: 0 3rem;
   font-size: 1.6rem;
   color: #c8d5da;
-}
+} */
 
 .nav-links a:hover {
-  color: #4e75dd;
+  color: #f6029f;
 }
 .form {
   display: flex;
@@ -137,7 +137,7 @@ button {
   display: block;
 }
 
-.exit {
+#modalTest .exit {
   color:red;
   font-size: 2rem;
   text-align: right;
@@ -227,10 +227,9 @@ button {
 .card {
   background-color: #0101a1;
   border: 0;
-  box-shadow: 1px -1px 0 #e0e0e0, 0 0 2px rgba(0, 0, 0, 0.12),
+  box-shadow: 0px -1px 0 #e0e0e0, 0 0 2px rgba(0, 0, 0, 0.12),
     0 2px 4px rgba(0, 0, 0, 0.24);
   padding: 1rem;
-  cursor: pointer;
   position: relative;
   margin: 1rem auto;
   width: 30%;

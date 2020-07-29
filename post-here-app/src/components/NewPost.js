@@ -1,46 +1,47 @@
-import React, { useState, useContext } from 'react';
-import axiosWithAuth from '../utils/axiosWithAuth';
-import { UserContext } from '../utils/UserContext';
+import React, { useState, useContext } from "react";
+import axiosWithAuth from "../utils/axiosWithAuth";
+import { UserContext } from "../utils/UserContext";
 
 const NewPost = (props) => {
-    const { user_id, getData } = useContext(UserContext)
+  const { user_id, getData } = useContext(UserContext);
 
-    const [postToEdit, setPostToEdit] = useState({
-        id:"",
-        user_id:"",
-        title:"",
-        content:"",
-        subreddit:"",
-    })
+  const [postToEdit, setPostToEdit] = useState({
+    id: "",
+    user_id: "",
+    title: "",
+    content: "",
+    subreddit: "",
+  });
 
-    // Web API POST request
+  // Web API POST request
 
-    const addNewPost = e => {
-        e.preventDefault()
+  const addNewPost = (e) => {
+    e.preventDefault();
 
-        axiosWithAuth()
-        .post(`/api/posts/user/${user_id}`, {
-            user_id: user_id,
-            title: postToEdit.title,
-            content: postToEdit.content,
-            subreddit: postToEdit.subreddit,
-        })
-        .then(res => {
-            console.log("ADDED NEW POST", res)
-            axiosWithAuth()
-            getData()
-            alert("New Post Added")
-        })
-        .catch(err => {
-            console.log(err)
-        })
-    }
+    axiosWithAuth()
+      .post(`/api/posts/user/${user_id}`, {
+        user_id: user_id,
+        title: postToEdit.title,
+        content: postToEdit.content,
+        subreddit: postToEdit.subreddit,
+      })
+      .then((res) => {
+        console.log("ADDED NEW POST", res);
+        axiosWithAuth();
+        getData();
+        alert("New Post Added");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
-    const onChangeHandler = e => {
-        setPostToEdit({
-            ...postToEdit, [e.target.name]: e.target.value
-        })
-    }
+  const onChangeHandler = (e) => {
+    setPostToEdit({
+      ...postToEdit,
+      [e.target.name]: e.target.value,
+    });
+  };
 
     return(
         <div className='newPost'>
@@ -66,4 +67,4 @@ const NewPost = (props) => {
     )
 }
 
-export default NewPost
+export default NewPost;

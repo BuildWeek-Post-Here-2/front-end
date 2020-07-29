@@ -1,45 +1,15 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import Posts from "../components/login/Posts";
-import styled from "styled-components";
 import NewPost from "./NewPost";
 import { UserContext } from '../utils/UserContext';
 
 export default function Dashboard() {
   const { logOut } = useContext(UserContext)
-
-  const StyledForm = styled.div`
-    background-color: #3498db;
-    nav {
-      display: flex;
-      justify-content: space-around;
-      background-color: #d7bde2;
-      width: 100%;
-      a {
-        text-decoration: none;
-        font-size: 2rem;
-        color: #2e4053;
-      }
-    }
-    .cardBox {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      .card {
-        margin-top: 3rem;
-        background-color: black;
-        width: 50%;
-        p {
-          font-size: 2rem;
-          color: greenyellow;
-        }
-      }
-    }
-  `;
   return (
-    <div className='dashboard'>
+    <styledForm>
       <header>
-        <nav>
+        <nav className="nav-links">
           <a className="logo" href="#">Post Here</a>
           <a href="#">Home</a>
           <Link to="/">Signup</Link>
@@ -51,6 +21,6 @@ export default function Dashboard() {
         <NewPost />
       </header>
       <Posts />
-    </div>
+    </styledForm>
   );
 }
