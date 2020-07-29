@@ -32,7 +32,7 @@ h2 {
 }
 
 h4 {
-  font-size: 2.5rem;
+  font-size: 2.3rem;
   padding-bottom: 1rem;
 }
 
@@ -242,5 +242,9 @@ button {
 #logo {
   font-size: 35px;
   color: #00A7D1;
+}
+
+span{
+  font-weight: bold;
 }
 

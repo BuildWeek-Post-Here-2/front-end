@@ -27,7 +27,7 @@ function App() {
     .get(`/api/posts/user/${user_id}`)
     .then((res) => {
       setPostList(res.data);
-      console.log("GET REQUEST", res)
+      // console.log("GET REQUEST", res)
     })
     .catch((err) => {
       console.log(err)

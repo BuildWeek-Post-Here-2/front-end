@@ -53,7 +53,7 @@ const Post = (props) => {
         x2: post.content,
       })
       .then((res) => {
-        console.log("Submitted post to DS API", res);
+        // console.log("Submitted post to DS API", res);
         setSubredditPrediction(res.data.prediction);
         // alert("Post Submitted")
       })
@@ -115,7 +115,12 @@ const Post = (props) => {
 
           <p>{post.title}</p>
           <p>{post.content}</p>
-          <p>Prediction: r/{subredditPrediction}</p>
+          {
+            subredditPrediction === "" && <h4>Loading Prediction</h4>
+          }
+          {
+            subredditPrediction != "" && <p><span>Prediction:</span> r/{subredditPrediction}</p>
+          }
         </div>
       </div>
     </StyledForm>
