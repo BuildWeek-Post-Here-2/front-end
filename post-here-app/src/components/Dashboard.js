@@ -3,47 +3,49 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import Posts from "../components/login/Posts";
 import styled from "styled-components";
+import NewPost from "./NewPost";
 
-export default function Login() {
-  const StyledForm = styled.div`
-    .form {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    nav {
-      display: flex;
+export default function Dashboard() {
+//   const StyledForm = styled.div`
+//     .form {
+//       display: flex;
+//       flex-direction: column;
+//       align-items: center;
+//     }
+//     nav {
+//       display: flex;
 
-      border: solid black 2px;
-      background-color: blueviolet;
-    }
-    h3 {
-      text-decoration: none;
-      color: blue;
-      font-size: 3rem;
-    }
-    .formDiv {
-      border: solid black 2px;
-      margin-top: 2rem;
-      height: 8rem;
-    }
-    input {
-      height: 4rem;
-      width: 40rem;
-      font-size: 2rem;
-      background-color: cornsilk;
-    }
-    .formErrors {
-      font-size: 2rem;
-    }
-    button {
-      height: 4rem;
-      width: 12rem;
-      margin-top: 1rem;
-    }
-  `;
+//       border: solid black 2px;
+//       background-color: blueviolet;
+//     }
+//     h3 {
+//       text-decoration: none;
+//       color: blue;
+//       font-size: 3rem;
+//     }
+//     .formDiv {
+//       border: solid black 2px;
+//       margin-top: 2rem;
+//       height: 8rem;
+//     }
+//     input {
+//       height: 4rem;
+//       width: 40rem;
+//       font-size: 2rem;
+//       background-color: cornsilk;
+//     }
+//     .formErrors {
+//       font-size: 2rem;
+//     }
+//     button {
+//       height: 4rem;
+//       width: 12rem;
+//       margin-top: 1rem;
+//     }
+//   `;
+
   return (
-    <StyledForm>
+    <div>
       <header>
         <nav>
           <div className="nav-links">
@@ -53,8 +55,9 @@ export default function Login() {
           </div>
         </nav>
         <h1>Dashboard Here</h1>
+        <NewPost/>
       </header>
       <Posts />
-    </StyledForm>
+    </div>
   );
 }

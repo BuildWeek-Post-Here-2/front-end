@@ -1,22 +1,20 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
+import React, { useEffect, useState, useContext } from "react";
 import Post from "./Post";
 import styled from "styled-components";
+import { UserContext } from '../../utils/UserContext';
 
 const Posts = () => {
   // Make sure the parent of Posts is passing the right props!
-  const [posts, setPosts] = useState([]);
+  // const [posts, setPosts] = useState([]);
+  
+  const { postList, getData } = useContext(UserContext)
+
   useEffect(() => {
-    axios
-      .get("https://reqres.in/api/users")
-      .then((res) => {
-        setPosts(res.data.data);
-        console.log(res.data.data);
-      })
-      .catch((error) => {
-        debugger;
-      });
+    getData()
   }, []);
+
+
+
   const StyledPost = styled.div`
     .cardBox {
       display: flex;
@@ -37,7 +35,7 @@ const Posts = () => {
   return (
     <StyledPost>
       {/* map through the posts here to return a Post component */}
-      {posts.map((post) => (
+      {postList.map((post) => (
         <Post key={post.id} post={post} />
       ))}
       {/* Check the implementation of Post to see what props it requires! */}
@@ -46,3 +44,4 @@ const Posts = () => {
 };
 
 export default Posts;
+
