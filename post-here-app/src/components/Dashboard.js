@@ -7,7 +7,7 @@ import { UserContext } from '../utils/UserContext';
 export default function Dashboard() {
   const { logOut } = useContext(UserContext)
   return (
-    <div>
+    <div className="dashboard">
       <header>
         <nav className="nav-links">
           <a className="logo" href="#">Post Here</a>

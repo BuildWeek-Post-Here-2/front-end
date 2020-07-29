@@ -63,7 +63,7 @@ const EditPost = (props) => {
                     onChange={onChangeHandler}
                     placeholder="content"
                 />
-                <button id="editbutton" onClick={(e) => editPost(e, props.id)}>Submit Changes</button>
+                <button id="editbutton" onClick={(e) => editPost(e, props.id)}>Submit</button>
             </form>
         </div>
     )

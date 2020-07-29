@@ -44,7 +44,7 @@ function App() {
     <Router>
       <UserContext.Provider value ={{user_id, postList, setPostList, getData, logOut}}>
         <div className="App">
-          <Route path="/Dashboard" component={Dashboard} />
+          <PrivateRoute path="/Dashboard" component={Dashboard} />
           <Route path="/Login" component={Login} />
           <Route exact path="/" component={SignUp} />
         </div>

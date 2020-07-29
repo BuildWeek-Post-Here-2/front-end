@@ -246,3 +246,7 @@ button {
 .card:before {
   transform: scale(2.15);
 }
+
+.dashboard form input {
+  margin:10px;
+}
