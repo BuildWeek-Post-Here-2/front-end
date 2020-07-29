@@ -27,9 +27,9 @@ export default function Dashboard() {
         margin-top: 3rem;
         background-color: black;
         width: 50%;
-        color: greenyellow;
         p {
           font-size: 2rem;
+          color: greenyellow;
         }
       }
     }
