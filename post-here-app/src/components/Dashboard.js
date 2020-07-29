@@ -42,7 +42,6 @@ export default function Dashboard() {
           <Link to="/login">Login</Link>
           <Link to="/dashboard">Dashboard</Link>
         </nav>
-
         <NewPost />
       </header>
       <Posts />
