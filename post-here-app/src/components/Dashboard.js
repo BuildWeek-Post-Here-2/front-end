@@ -1,63 +1,26 @@
-import React, { useState, useEffect } from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import axios from "axios";
 import Posts from "../components/login/Posts";
-import styled from "styled-components";
 import NewPost from "./NewPost";
+import { UserContext } from '../utils/UserContext';
 
 export default function Dashboard() {
-//   const StyledForm = styled.div`
-//     .form {
-//       display: flex;
-//       flex-direction: column;
-//       align-items: center;
-//     }
-//     nav {
-//       display: flex;
-
-//       border: solid black 2px;
-//       background-color: blueviolet;
-//     }
-//     h3 {
-//       text-decoration: none;
-//       color: blue;
-//       font-size: 3rem;
-//     }
-//     .formDiv {
-//       border: solid black 2px;
-//       margin-top: 2rem;
-//       height: 8rem;
-//     }
-//     input {
-//       height: 4rem;
-//       width: 40rem;
-//       font-size: 2rem;
-//       background-color: cornsilk;
-//     }
-//     .formErrors {
-//       font-size: 2rem;
-//     }
-//     button {
-//       height: 4rem;
-//       width: 12rem;
-//       margin-top: 1rem;
-//     }
-//   `;
-
+  const { logOut } = useContext(UserContext)
   return (
-    <div>
+    <styledForm>
       <header>
-        <nav>
-          <div className="nav-links">
-            <Link to="/">Signup</Link>
-            <Link to="/login">Login</Link>
-            <Link to="/dashboard">Dashboard</Link>
-          </div>
+        <nav className="nav-links">
+          <a className="logo" href="#">Post Here</a>
+          <a href="#">Home</a>
+          <Link to="/">Signup</Link>
+          <Link to="/login">Login</Link>
+          <Link to="/dashboard">Dashboard</Link>
+          <Link to="/login" onClick={logOut}>Log Out</Link>
+          <a href="#">About us</a>
         </nav>
-        <h1>Dashboard Here</h1>
-        <NewPost/>
+        <NewPost />
       </header>
       <Posts />
-    </div>
+    </styledForm>
   );
 }

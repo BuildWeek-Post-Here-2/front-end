@@ -31,16 +31,20 @@ function App() {
     })
     .catch((err) => {
       console.log(err)
-      debugger
+      // debugger
     });
+  }
+
+  const logOut = () => {
+    window.localStorage.clear()
   }
 
 
   return (
     <Router>
-      <UserContext.Provider value ={{user_id, postList, setPostList, getData}}>
+      <UserContext.Provider value ={{user_id, postList, setPostList, getData, logOut}}>
         <div className="App">
-          <PrivateRoute path="/Dashboard" component={Dashboard} />
+          <Route path="/Dashboard" component={Dashboard} />
           <Route path="/Login" component={Login} />
           <Route exact path="/" component={SignUp} />
         </div>

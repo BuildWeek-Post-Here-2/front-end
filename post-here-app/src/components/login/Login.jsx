@@ -3,7 +3,7 @@ import * as Yup from "yup";
 import LoginForm from "./LoginForm.jsx";
 import loginSchema from "./loginSchema.js";
 import { Link } from "react-router-dom";
-import axiosWithAuth from "../../utils/axiosWithAuth"
+import axiosWithAuth from "../../utils/axiosWithAuth";
 import { useHistory } from "react-router-dom";
 
 const initialLoginFormValues = {
@@ -67,27 +67,28 @@ export default function Login() {
     // console.log(loginUser);
 
     axiosWithAuth()
-    .post("/api/auth/login", loginUser)
-    .then(res => {
-      console.log('Login Post', res)
-      localStorage.setItem('token', res.data.token)
-      localStorage.setItem('id', res.data.data.id);
-      history.push("/dashboard")
-    })
-    .catch(err => {
-      debugger
-      console.log(err)
-    })
+      .post("/api/auth/login", loginUser)
+      .then((res) => {
+        console.log("Login Post", res);
+        localStorage.setItem("token", res.data.token);
+        localStorage.setItem("id", res.data.data.id);
+        history.push("/dashboard");
+      })
+      .catch((err) => {
+        debugger;
+        console.log(err);
+      });
   };
 
   return (
     <div>
       <nav>
-        <div className="nav-links">
+        <a href="#">Post Here</a>
+        <a href="#">Home</a>
         <Link to="/">Signup</Link>
         <Link to="/login">Login</Link>
         <Link to="/dashboard">Dashboard</Link>
-        </div>
+        <a href="#">About us</a>
       </nav>
       <h1>Login</h1>
 

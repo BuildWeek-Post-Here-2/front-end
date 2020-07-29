@@ -1,51 +1,52 @@
-import React, { useState, useContext, useEffect } from 'react';
-import axiosWithAuth from '../utils/axiosWithAuth';
-import { UserContext } from '../utils/UserContext';
+import React, { useState, useContext, useEffect } from "react";
+import axiosWithAuth from "../utils/axiosWithAuth";
+import { UserContext } from "../utils/UserContext";
 
 const EditPost = (props) => {
-    const { user_id, getData } = useContext(UserContext)
+  const { user_id, getData } = useContext(UserContext);
 
-    const [postToEdit, setPostToEdit] = useState({
-        id:"",
-        user_id:"",
-        title:"",
-        content:"",
-        subreddit:"",
-    })
+  const [postToEdit, setPostToEdit] = useState({
+    id: "",
+    user_id: "",
+    title: "",
+    content: "",
+    subreddit: "",
+  });
 
-    // Web API PUT request
-    const editPost = (e, id) => {
-        e.preventDefault()
-        axiosWithAuth()
-        .put(`/api/posts/${id}`, {
-            user_id: user_id,
-            title: postToEdit.title,
-            content: postToEdit.content,
-            subreddit: postToEdit.subreddit,
-        })
-        .then(res => {
-          console.log("Post Changed", res)
-          setPostToEdit({
-            user_id: user_id,
-            title: postToEdit.title,
-            content: postToEdit.content,
-            subreddit: postToEdit.subreddit,
-          })
-          getData()
-        })
-        .catch(err => {
-          console.log(err)
-        })
-      }
-
-    const onChangeHandler = e => {
+  // Web API PUT request
+  const editPost = (e, id) => {
+    e.preventDefault();
+    axiosWithAuth()
+      .put(`/api/posts/${id}`, {
+        user_id: user_id,
+        title: postToEdit.title,
+        content: postToEdit.content,
+        subreddit: postToEdit.subreddit,
+      })
+      .then((res) => {
+        console.log("Post Changed", res);
         setPostToEdit({
-            ...postToEdit, [e.target.name]: e.target.value
-        })
-    }
+          user_id: user_id,
+          title: postToEdit.title,
+          content: postToEdit.content,
+          subreddit: postToEdit.subreddit,
+        });
+        getData();
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  const onChangeHandler = (e) => {
+    setPostToEdit({
+      ...postToEdit,
+      [e.target.name]: e.target.value,
+    });
+  };
 
     return(
-        <div className='newPost'>
+        <div className='updatePost'>
             <h3>Update a Post</h3>
             <form>
                 <input
@@ -68,4 +69,4 @@ const EditPost = (props) => {
     )
 }
 
-export default EditPost
+export default EditPost;
