@@ -69,24 +69,6 @@ body {
   box-sizing: border-box;
 }
 
-/* .nav-links {
-  font-family: "Nunito", sans-serif;
-  font-weight: 600;
-  margin-top: 0.7%;
-  background-color: #235b2d;
-  display: flex;
-  justify-content: center;
-}
-
-.nav-links a {
-  text-decoration: none;
-  font-family: "Nunito", sans-serif;
-  font-weight: normal;
-  margin: 0 3rem;
-  font-size: 1.6rem;
-  color: #c8d5da;
-} */
-
 .nav-links a:hover {
   color: #f6029f;
 }
@@ -114,6 +96,9 @@ input {
 .formErrors {
   font-size: 2rem;
 }
+
+/* Button Styling */
+
 button {
   height: 4rem;
   width: 12rem;
@@ -154,7 +139,7 @@ button {
 	border:1px solid #268a16;
 	display:inline-block;
 	cursor:pointer;
-	color:#306108;
+	color:black;
 	font-family:Arial;
 	font-size:15px;
 	font-weight:bold;
@@ -224,6 +209,8 @@ button {
 	top:1px;
 }
 
+ /* Card Styling */
+
 .card {
   background-color: #0101a1;
   border: 0;
@@ -239,7 +226,6 @@ button {
   transition: all 0.2s ease-out;
   box-shadow: 0px 4px 8px rgba(45, 89, 129, 0.2);
   top: -4px;
-  border: 1px solid #cccccc;
   background-color: white;
 }
 
@@ -250,3 +236,11 @@ button {
 .dashboard form input {
   margin:10px;
 }
+
+/* Logo Styling */
+
+#logo {
+  font-size: 35px;
+  color: #00A7D1;
+}
+
