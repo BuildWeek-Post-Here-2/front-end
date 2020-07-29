@@ -1,8 +1,8 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import axiosWithAuth from '../utils/axiosWithAuth';
 import { UserContext } from '../utils/UserContext';
 
-const NewPost = (props) => {
+const EditPost = (props) => {
     const { user_id, getData } = useContext(UserContext)
 
     const [postToEdit, setPostToEdit] = useState({
@@ -13,28 +13,30 @@ const NewPost = (props) => {
         subreddit:"",
     })
 
-    // Web API POST request
-
-    const addNewPost = e => {
+    // Web API PUT request
+    const editPost = (e, id) => {
         e.preventDefault()
-
         axiosWithAuth()
-        .post(`/api/posts/user/${user_id}`, {
+        .put(`/api/posts/${id}`, {
             user_id: user_id,
             title: postToEdit.title,
             content: postToEdit.content,
             subreddit: postToEdit.subreddit,
         })
         .then(res => {
-            console.log("ADDED NEW POST", res)
-            axiosWithAuth()
-            getData()
-            alert("New Post Added")
+          console.log("Post Changed", res)
+          setPostToEdit({
+            user_id: user_id,
+            title: postToEdit.title,
+            content: postToEdit.content,
+            subreddit: postToEdit.subreddit,
+          })
+          getData()
         })
         .catch(err => {
-            console.log(err)
+          console.log(err)
         })
-    }
+      }
 
     const onChangeHandler = e => {
         setPostToEdit({
@@ -44,8 +46,8 @@ const NewPost = (props) => {
 
     return(
         <div className='newPost'>
-            <h3>Add a Post</h3>
-            <form onSubmit={addNewPost}>
+            <h3>Update a Post</h3>
+            <form>
                 <input
                     type="text"
                     name="title"
@@ -60,10 +62,10 @@ const NewPost = (props) => {
                     onChange={onChangeHandler}
                     placeholder="content"
                 />
-                <button type='submit'>Add Post</button>
+                <button id="editbutton" onClick={(e) => editPost(e, props.id)}>Submit Changes</button>
             </form>
         </div>
     )
 }
 
-export default NewPost
+export default EditPost

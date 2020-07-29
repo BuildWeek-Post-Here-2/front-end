@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import Posts from "../components/login/Posts";
 import styled from "styled-components";
+import NewPost from "./NewPost";
 
 export default function Login() {
   const StyledForm = styled.div`
@@ -35,7 +36,7 @@ export default function Login() {
     }
   `;
   return (
-    <StyledForm>
+    <div>
       <header>
         <nav>
           <Link to="/">Signup</Link>
@@ -43,8 +44,9 @@ export default function Login() {
           <Link to="/dashboard">Dashboard</Link>
         </nav>
         <h1>Dashboard Here</h1>
+        <NewPost />
       </header>
       <Posts />
-    </StyledForm>
+    </div>
   );
 }
