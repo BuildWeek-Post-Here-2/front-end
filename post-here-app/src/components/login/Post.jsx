@@ -10,24 +10,24 @@ const Post = (props) => {
   const { getData, postList, setPostList } = useContext(UserContext);
   const [subredditPrediction, setSubredditPrediction] = useState("");
 
-  const openModal = e => {
-    e.preventDefault()
-    const modal = document.querySelector('#modalTest')
-    const editbutton = document.querySelector('#editButton')
-    const deletebutton = document.querySelector('#deleteButton')
-    modal.classList.add("open-modal")
-    editbutton.classList.add("hide-button")
-    deletebutton.classList.add("hide-button")
-  }
+  const openModal = (e) => {
+    e.preventDefault();
+    const modal = document.querySelector("#modalTest");
+    const editbutton = document.querySelector("#editButton");
+    const deletebutton = document.querySelector("#deleteButton");
+    modal.classList.add("open-modal");
+    editbutton.classList.add("hide-button");
+    deletebutton.classList.add("hide-button");
+  };
 
   const closeModal = () => {
-    const modal = document.querySelector('#modalTest')
-    const editbutton = document.querySelector('#editButton')
-    const deletebutton = document.querySelector('#deleteButton')
-    modal.classList.remove("open-modal")
-    editbutton.classList.remove("hide-button")
-    deletebutton.classList.remove("hide-button")
-  }
+    const modal = document.querySelector("#modalTest");
+    const editbutton = document.querySelector("#editButton");
+    const deletebutton = document.querySelector("#deleteButton");
+    modal.classList.remove("open-modal");
+    editbutton.classList.remove("hide-button");
+    deletebutton.classList.remove("hide-button");
+  };
 
   // Web API DELETE request
   const deletePost = (e, id) => {
@@ -83,11 +83,12 @@ const Post = (props) => {
       justify-content: center;
       .card {
         margin-top: 3rem;
-        background-color: black;
+        background-color: cornsilk;
         width: 50%;
+        border-radius: 2rem;
         p {
           font-size: 2rem;
-          color: greenyellow;
+          color: black;
         }
         button {
           margin-bottom: 1rem;
@@ -99,14 +100,16 @@ const Post = (props) => {
     <StyledForm>
       <div className="cardBox">
         <div className="card">
-          <button id='editButton' onClick={openModal}>Edit</button>
+          <button id="editButton" onClick={openModal}>
+            Edit
+          </button>
           <div id="modalTest">
-            <p className='exit' onClick={closeModal}>X</p>
-            <EditPosts id={post.id}/>
+            <p className="exit" onClick={closeModal}>
+              X
+            </p>
+            <EditPosts id={post.id} />
           </div>
-          <button id="deleteButton" 
-            onClick={(e) => deletePost(e,post.id)}
-          >
+          <button id="deleteButton" onClick={(e) => deletePost(e, post.id)}>
             Delete
           </button>
 
