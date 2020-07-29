@@ -31,7 +31,7 @@ function App() {
     })
     .catch((err) => {
       console.log(err)
-      debugger
+      // debugger
     });
   }
 

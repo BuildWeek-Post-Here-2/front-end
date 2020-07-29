@@ -60,7 +60,7 @@ const NewPost = (props) => {
                     onChange={onChangeHandler}
                     placeholder="content"
                 />
-                <button type='submit'>Add Post</button>
+                <button id='addButton' type='submit'>Add Post</button>
             </form>
         </div>
     )
