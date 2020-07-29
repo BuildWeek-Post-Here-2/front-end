@@ -25,9 +25,9 @@ export default function Dashboard() {
       justify-content: center;
       .card {
         margin-top: 3rem;
-        background-color: cornsilk;
+        background-color: black;
         width: 50%;
-        color: coral;
+        color: greenyellow;
         p {
           font-size: 2rem;
         }
@@ -42,7 +42,6 @@ export default function Dashboard() {
           <Link to="/login">Login</Link>
           <Link to="/dashboard">Dashboard</Link>
         </nav>
-        <h1>Dashboard Here</h1>
         <NewPost />
       </header>
       <Posts />
