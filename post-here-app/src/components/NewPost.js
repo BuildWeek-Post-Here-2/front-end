@@ -2,7 +2,7 @@ import React, { useState, useContext } from 'react';
 import axiosWithAuth from '../utils/axiosWithAuth';
 import { UserContext } from '../utils/UserContext';
 
-const NewPost = () => {
+const NewPost = (props) => {
     const { user_id, postList, setPostList } = useContext(UserContext)
 
     const [postToEdit, setPostToEdit] = useState({
@@ -17,7 +17,7 @@ const NewPost = () => {
         e.preventDefault()
 
         axiosWithAuth()
-        .post('', {
+        .post(`/api/posts/user/${user_id}`, {
             user_id: user_id,
             title: postToEdit.title,
             content: postToEdit.content,
@@ -25,7 +25,17 @@ const NewPost = () => {
         })
         .then(res => {
             console.log("ADDED NEW POST", res)
-            // setPostList(res.data)
+            axiosWithAuth()
+            .get(`/api/posts/user/${user_id}`)
+            .then((res) => {
+              setPostList(res.data);
+              console.log("GET REQUEST 2", res)
+            })
+            .catch((err) => {
+              console.log(err)
+              debugger
+            });
+            alert("New Post Added")
         })
         .catch(err => {
             console.log(err)
@@ -36,7 +46,6 @@ const NewPost = () => {
         setPostToEdit({
             ...postToEdit, [e.target.name]: e.target.value
         })
-        // console.log(plant)
     }
 
     return(

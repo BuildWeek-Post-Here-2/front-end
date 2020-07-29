@@ -8,9 +8,8 @@ const Post = (props) => {
   return (
     <div className="cardBox">
       <div className="card">
-        <p>{post.first_name}</p>
-        <p>{post.last_name}</p>
-        <p>{post.email}</p>
+        <p>{post.title}</p>
+        <p>{post.content}</p>
       </div>
     </div>
   );

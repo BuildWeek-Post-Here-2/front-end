@@ -13,13 +13,13 @@ function App() {
   // CONTEXT STATE
   const user_id = window.localStorage.getItem('id')
 
-  const [postList, setPostList] = useState({
+  const [postList, setPostList] = useState([{
     id:"",
     user_id:"",
     title:"",
     content:"",
     subreddit:"",
-  })
+  }])
 
 
   return (
