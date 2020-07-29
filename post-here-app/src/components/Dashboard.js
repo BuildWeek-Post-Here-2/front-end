@@ -24,7 +24,6 @@ export default function Dashboard() {
       align-items: center;
       justify-content: center;
       .card {
-        border-radius: 2rem;
         margin-top: 3rem;
         background-color: cornsilk;
         width: 50%;
