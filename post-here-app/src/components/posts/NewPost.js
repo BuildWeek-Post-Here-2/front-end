@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
-import axiosWithAuth from "../utils/axiosWithAuth";
-import { UserContext } from "../utils/UserContext";
+import axiosWithAuth from "../../utils/axiosWithAuth";
+import { UserContext } from "../../utils/UserContext";
 
 const NewPost = (props) => {
   const { user_id, getData } = useContext(UserContext);
@@ -51,28 +51,30 @@ const NewPost = (props) => {
     });
   };
 
-    return(
-        <div className='newPost'>
-            <h3>Add a Post</h3>
-            <form onSubmit={addNewPost}>
-                <input
-                    type="text"
-                    name="title"
-                    value={postToEdit.title}
-                    onChange={onChangeHandler}
-                    placeholder="title"
-                />
-                <input
-                    type="text"
-                    name="content"
-                    value={postToEdit.content}
-                    onChange={onChangeHandler}
-                    placeholder="content"
-                />
-                <button id='addButton' type='submit'>Add Post</button>
-            </form>
-        </div>
-    )
-}
+  return (
+    <div className="newPost">
+      <h3>Add a Post</h3>
+      <form onSubmit={addNewPost}>
+        <input
+          type="text"
+          name="title"
+          value={postToEdit.title}
+          onChange={onChangeHandler}
+          placeholder="title"
+        />
+        <input
+          type="text"
+          name="content"
+          value={postToEdit.content}
+          onChange={onChangeHandler}
+          placeholder="content"
+        />
+        <button id="addButton" type="submit">
+          Add Post
+        </button>
+      </form>
+    </div>
+  );
+};
 
 export default NewPost;

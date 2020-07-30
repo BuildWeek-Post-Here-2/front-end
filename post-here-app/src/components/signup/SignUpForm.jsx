@@ -1,5 +1,5 @@
 import React from "react";
-import "../login.css";
+import "../login/style/login.css";
 
 export default function SignUpForm(props) {
   const { values, onSubmit, onInputChange, disabled, formErrors } = props;
