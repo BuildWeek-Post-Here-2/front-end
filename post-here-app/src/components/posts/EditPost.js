@@ -1,6 +1,7 @@
 import React, { useState, useContext, useEffect } from "react";
 import axiosWithAuth from "../../utils/axiosWithAuth";
 import { UserContext } from "../../utils/UserContext";
+import axios from "axios"
 
 const EditPost = (props) => {
   const { user_id, getData } = useContext(UserContext);
@@ -30,6 +31,21 @@ const EditPost = (props) => {
           title: postToEdit.title,
           content: postToEdit.content,
           subreddit: postToEdit.subreddit,
+        });
+
+        //Resubmits post to DS API
+        axios
+        .post(`https://bw-post-here-2.herokuapp.com/predict`, {
+          x1: postToEdit.title,
+          x2: postToEdit.content,
+        })
+        .then((res) => {
+          console.log("Submitted post to DS API", res);
+          props.setSubredditPrediction(res.data.prediction);
+          // alert("Post Submitted")
+        })
+        .catch((err) => {
+          console.log(err);
         });
         getData();
       })

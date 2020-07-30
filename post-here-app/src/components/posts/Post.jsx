@@ -107,7 +107,7 @@ const Post = (props) => {
             <p className="exit" onClick={closeModal}>
               X
             </p>
-            <EditPosts id={post.id} />
+            <EditPosts setSubredditPrediction={setSubredditPrediction} id={post.id} />
           </div>
           <button id="deleteButton" onClick={(e) => deletePost(e, post.id)}>
             Delete
