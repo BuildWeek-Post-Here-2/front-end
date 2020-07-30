@@ -7,7 +7,7 @@ import styled from "styled-components";
 
 const Post = (props) => {
   const { post } = props;
-  const { getData, postList, setPostList } = useContext(UserContext);
+  const { getData } = useContext(UserContext);
   const [subredditPrediction, setSubredditPrediction] = useState("");
 
   const openModal = (e) => {
@@ -44,9 +44,7 @@ const Post = (props) => {
   };
 
   // DS API POST request
-  const prediction = (e) => {
-    // e.preventDefault()
-
+  const prediction = () => {
     axios
       .post(`https://bw-post-here-2.herokuapp.com/predict`, {
         x1: post.title,
@@ -115,8 +113,8 @@ const Post = (props) => {
 
           <p>{post.title}</p>
           <p>{post.content}</p>
-          {subredditPrediction === "" && <h4>Loading Prediction</h4>}
-          {subredditPrediction != "" && (
+          {subredditPrediction === "" && <h4 id="prediction-loading">Loading Prediction</h4>}
+          {subredditPrediction !== "" && (
             <p>
               <span>Prediction:</span> r/{subredditPrediction}
             </p>
