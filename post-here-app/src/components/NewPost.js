@@ -33,6 +33,14 @@ const NewPost = (props) => {
       })
       .catch((err) => {
         console.log(err);
+      })
+      .finally(() => {
+        setPostToEdit({
+            user_id: user_id,
+            title: "",
+            content: "",
+            subreddit: postToEdit.subreddit,
+        });
       });
   };
 
