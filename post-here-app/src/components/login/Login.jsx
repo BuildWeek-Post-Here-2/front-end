@@ -69,13 +69,13 @@ export default function Login() {
     axiosWithAuth()
       .post("/api/auth/login", loginUser)
       .then((res) => {
-        console.log("Login Post", res);
+        // console.log("Login Post", res);
         localStorage.setItem("token", res.data.token);
         localStorage.setItem("id", res.data.data.id);
         history.push("/dashboard");
       })
       .catch((err) => {
-        debugger;
+        // debugger;
         console.log(err);
       });
   };
