@@ -242,7 +242,10 @@ button {
   color: #00a7d1;
 }
 
-span{
+span {
   font-weight: bold;
 }
 
+#prediction-loading {
+  color: #2D39B7;
+}

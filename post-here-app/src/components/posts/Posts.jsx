@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useEffect, useContext } from "react";
 import Post from "./Post";
 import { UserContext } from "../../utils/UserContext";
 
