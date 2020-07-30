@@ -1,6 +1,6 @@
 import React, { useState, useContext, useEffect } from "react";
-import axiosWithAuth from "../utils/axiosWithAuth";
-import { UserContext } from "../utils/UserContext";
+import axiosWithAuth from "../../utils/axiosWithAuth";
+import { UserContext } from "../../utils/UserContext";
 
 const EditPost = (props) => {
   const { user_id, getData } = useContext(UserContext);
@@ -45,28 +45,30 @@ const EditPost = (props) => {
     });
   };
 
-    return(
-        <div className='updatePost'>
-            <h3>Update a Post</h3>
-            <form>
-                <input
-                    type="text"
-                    name="title"
-                    value={postToEdit.title}
-                    onChange={onChangeHandler}
-                    placeholder="title"
-                />
-                <input
-                    type="text"
-                    name="content"
-                    value={postToEdit.content}
-                    onChange={onChangeHandler}
-                    placeholder="content"
-                />
-                <button id="editbutton" onClick={(e) => editPost(e, props.id)}>Submit</button>
-            </form>
-        </div>
-    )
-}
+  return (
+    <div className="updatePost">
+      <h3>Update a Post</h3>
+      <form>
+        <input
+          type="text"
+          name="title"
+          value={postToEdit.title}
+          onChange={onChangeHandler}
+          placeholder="title"
+        />
+        <input
+          type="text"
+          name="content"
+          value={postToEdit.content}
+          onChange={onChangeHandler}
+          placeholder="content"
+        />
+        <button id="editbutton" onClick={(e) => editPost(e, props.id)}>
+          Submit
+        </button>
+      </form>
+    </div>
+  );
+};
 
 export default EditPost;

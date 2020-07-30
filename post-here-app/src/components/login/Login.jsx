@@ -83,12 +83,16 @@ export default function Login() {
   return (
     <div>
       <nav>
-        <a id="logo" href="/">Post Here</a>
+        <a id="logo" href="/">
+          Post Here
+        </a>
         <a href="https://loving-yalow-27dd9e.netlify.app/">Home</a>
         <Link to="/">Signup</Link>
         <Link to="/login">Login</Link>
         <Link to="/dashboard">Dashboard</Link>
-        <a href="https://loving-yalow-27dd9e.netlify.app/about.html">About Us</a>
+        <a href="https://loving-yalow-27dd9e.netlify.app/about.html">
+          About Us
+        </a>
       </nav>
       <h1>Login</h1>
 

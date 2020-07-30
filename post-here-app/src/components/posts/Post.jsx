@@ -1,7 +1,7 @@
 import React, { useContext, useState, useEffect } from "react";
 import axiosWithAuth from "../../utils/axiosWithAuth";
 import { UserContext } from "../../utils/UserContext";
-import EditPosts from "../EditPost";
+import EditPosts from "../posts/EditPost";
 import axios from "axios";
 import styled from "styled-components";
 
@@ -115,12 +115,12 @@ const Post = (props) => {
 
           <p>{post.title}</p>
           <p>{post.content}</p>
-          {
-            subredditPrediction === "" && <h4>Loading Prediction</h4>
-          }
-          {
-            subredditPrediction != "" && <p><span>Prediction:</span> r/{subredditPrediction}</p>
-          }
+          {subredditPrediction === "" && <h4>Loading Prediction</h4>}
+          {subredditPrediction != "" && (
+            <p>
+              <span>Prediction:</span> r/{subredditPrediction}
+            </p>
+          )}
         </div>
       </div>
     </StyledForm>
