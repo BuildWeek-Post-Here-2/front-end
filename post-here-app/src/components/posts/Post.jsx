@@ -111,8 +111,8 @@ const Post = (props) => {
             Delete
           </button>
 
-          <p>{post.title}</p>
-          <p>{post.content}</p>
+          <p><span>Title:</span> {post.title}</p>
+          <p><span>Content:</span> {post.content}</p>
           {subredditPrediction === "" && <h4 id="prediction-loading">Loading Prediction</h4>}
           {subredditPrediction !== "" && (
             <p>
