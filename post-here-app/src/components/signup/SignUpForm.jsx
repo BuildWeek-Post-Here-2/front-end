@@ -9,6 +9,7 @@ export default function SignUpForm(props) {
       <div className="form">
         <form onSubmit={onSubmit}>
           <div className="formDiv">
+            <div className="formErrors">{formErrors.signUpUsername}</div>
             <input
               name="signUpUsername"
               type="name"
@@ -16,10 +17,10 @@ export default function SignUpForm(props) {
               onChange={onInputChange}
               value={values.username}
             />
-            <div className="formErrors">{formErrors.signUpUsername}</div>
           </div>
 
           <div className="formDiv">
+            <div className="formErrors">{formErrors.signUpPassword}</div>
             <input
               name="signUpPassword"
               type="password"
@@ -27,9 +28,13 @@ export default function SignUpForm(props) {
               value={values.password}
               onChange={onInputChange}
             />
-            <div className="formErrors">{formErrors.signUpPassword}</div>
           </div>
           <div className="formDiv">
+            <div className="formErrors">
+              {values.confirmPassword === values.signUpPassword
+                ? (formErrors.confirmPassword = "")
+                : formErrors.confirmPassword}
+            </div>
             <input
               type="password"
               name="confirmPassword"
@@ -37,7 +42,6 @@ export default function SignUpForm(props) {
               value={values.confirmPassword}
               onChange={onInputChange}
             />
-            <div className="formErrors">{formErrors.confirmPassword}</div>
           </div>
           <div>
             <button disabled={disabled}>Sign Up</button>
