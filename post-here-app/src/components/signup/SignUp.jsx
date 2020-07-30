@@ -43,7 +43,7 @@ function SignUp() {
       .catch((err) => {
         setSignUpFormErrors({
           ...signUpFormErrors,
-          [name]: err.errors[0],
+          [name]: err.errors,
         });
       });
     setSignUpFormValues({
@@ -59,8 +59,6 @@ function SignUp() {
       username: signUpFormValues.signUpUsername.trim(),
       password: signUpFormValues.signUpPassword.trim(),
     };
-    console.log(signUpUser);
-
     axios
       .post(
         "https://posthere-backend.herokuapp.com/api/auth/register",
